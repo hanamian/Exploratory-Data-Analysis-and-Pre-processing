@@ -79,3 +79,27 @@ dataset['Revenue'].value_counts()
 output:
 
 ![image](https://user-images.githubusercontent.com/49611937/117605422-d6593480-b181-11eb-89e5-8b6433f549a4.png)
+
+---
+### 9. Missing Value
+```python
+dataset.isnull()
+dataset.isnull().sum()
+dataset.isnull().any()
+dataset.isnull().any().sum()
+
+#Total missing value
+dataset.isnull().sum().sum()
+```
+Result:
+
+![image](https://user-images.githubusercontent.com/49611937/117626829-bafe2180-b1a1-11eb-988a-8de19e9344dc.png)
+![image](https://user-images.githubusercontent.com/49611937/117627069-fe589000-b1a1-11eb-864e-a6a2c7aecb32.png)
+![image](https://user-images.githubusercontent.com/49611937/117621973-555b6680-b19c-11eb-8de6-9564d0211136.png)
+```
+8
+12
+```
+
+---
+
