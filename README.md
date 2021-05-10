@@ -114,7 +114,7 @@ dataset.fillna(dataset.median(). inplace=True)
 ```
 ---
 ### 12. Data Scaling
-Scaling diperlukan jika range data setiap feature tidak seragam. Misal feature A = 1-1000, feature B = 0-1. Tujuannya adalah **agar tidak ada dominasi saat training dan model yang dihasilkan tidak bias**. Kita bisa membuat data menjadi ber-rentang 0-1 dengan sklearn **.MinMaxScaler()**. Rumusnya adalah:
+Scaling diperlukan jika range data setiap feature tidak seragam. Misal feature A = 1-1000, feature B = 0-1. Tujuannya adalah **agar tidak ada dominasi saat training dan model yang dihasilkan tidak bias**. Kita bisa membuat data menjadi ber-rentang 0-1 dengan *sklearn.preprocessing* **.MinMaxScaler()**. Rumusnya adalah:
 
 ![image](https://user-images.githubusercontent.com/49611937/117653835-1e4a7c80-b1bf-11eb-8eba-14a6614b242b.png)
 
@@ -136,4 +136,23 @@ Result:
 ![image](https://user-images.githubusercontent.com/49611937/117660096-ef380900-b1c6-11eb-8dcd-13d59c8a5e89.png)
 
 ---
+### 13. Konversi Tipe data Objek ke Numerik (int atau float)
+Bisa menggunakan *sklearn.preprocessing* **LabelEncoder**
+```python
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
 
+# Convert feature 'Month'
+LE = LabelEncoder()
+dataset['Month'] = LE.fit_transform(dataset['Month'])
+print(LE.classes_)
+print(np.sort(dataset['Month'].unique()))				
+print('')
+
+# Convert feature'VisitorType'
+LE = LabelEncoder()
+dataset['VisitorType'] = LE.fit_transform(dataset['VisitorType'])
+print(LE.classes_)
+print(np.sort(dataset['VisitorType'].unique()))
+```
+![image](https://user-images.githubusercontent.com/49611937/117662283-95850e00-b1c9-11eb-8c4e-f5ca361337b4.png)
