@@ -102,4 +102,38 @@ Result:
 ```
 
 ---
+### 10. Drop Misssing Value
+```python
+dataset.dropna()
+```
+---
+### 11. Fill missing value using MEAN, MEDIAN
+```python
+dataset.fillna(dataset.mean(), inplace=True)
+dataset.fillna(dataset.median(). inplace=True)
+```
+---
+### 12. Data Scaling
+Scaling diperlukan jika range data setiap feature tidak seragam. Misal feature A = 1-1000, feature B = 0-1. Tujuannya adalah **agar tidak ada dominasi saat training dan model yang dihasilkan tidak bias**. Kita bisa membuat data menjadi ber-rentang 0-1 dengan sklearn **.MinMaxScaler()**. Rumusnya adalah:
+
+![image](https://user-images.githubusercontent.com/49611937/117653835-1e4a7c80-b1bf-11eb-8eba-14a6614b242b.png)
+
+```python
+from sklearn.preprocessing import MinMaxScaler
+
+scaler = MinMaxScaler
+
+#Kolom yang mau discale
+scaling_column = ['Administrative','Administrative_Duration','Informational','Informational_Duration','ProductRelated','ProductRelated_Duration','BounceRates','ExitRates','PageValues']
+
+#Apply fit_transform
+dataset[scaling_column] = scaler.fit_tranform(dataset[scaling_column])
+
+print(dataset[scaling_column].describe().T[['min','max']])
+```
+Result:
+
+![image](https://user-images.githubusercontent.com/49611937/117660096-ef380900-b1c6-11eb-8dcd-13d59c8a5e89.png)
+
+---
 
