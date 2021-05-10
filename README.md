@@ -56,22 +56,26 @@ output:
 
 ---
 ### 7. Correlation antar 2 kolom
+Bisa menggunakan **corr** langsung atau memakai **loc**
 untuk mengetahui seberapa kuat hubungan 2 kolom, apakah berkorelasi positif atau negatif. Berkorelasi kuat = multicollinearity
 ```python
 dataset['BounceRates'].corr(dataset['Exit-Rates'])
 dataset['TrafficType'].corr(dataset['Weekend'])
+
+#atau
+dataset_corr = dataset.corr()
+dataset_corr.loc['BounceRates', 'Exit-Rates']
+dataset_corr.loc['TrafficType', 'Weekend']
 ```
 output:
 
 ![image](https://user-images.githubusercontent.com/49611937/117605523-19b3a300-b182-11eb-82ad-634ec971b946.png)
 ---
 ### 8. Distribusi Dataset
-untuk melihat distribusi dataset.
+untuk melihat distribusi dataset. Kalau tidak seimbang = **Imbalanced**
 ```python
 dataset['Revenue'].value_counts()
 ```
 output:
 
 ![image](https://user-images.githubusercontent.com/49611937/117605422-d6593480-b181-11eb-89e5-8b6433f549a4.png)
-
----
